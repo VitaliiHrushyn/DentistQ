@@ -57,7 +57,7 @@ public class SimpleDentistCalendar implements DentistCalendar {
 				}
 			}
 			
-			count = (29 * 9 - subcount);
+			count = (30 * 9 - subcount);
 		} else {
 			count = 30 * 9;
 		}
