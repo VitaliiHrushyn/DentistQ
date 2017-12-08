@@ -27,7 +27,7 @@ public class SimpleReservinigHoursFactory implements ReservinigHoursFactory{
 	public List<ReservingHour> createNewDentistCalendarDays(int count) {		
 		
 		List<ReservingHour> reservingHoursForNewDays = new ArrayList<>();
-		for (int i = 30 - count; i < 30; i++) {
+		for (int i = 31 - count; i < 31; i++) {
 			LocalDate date = LocalDate.now().plusDays(i);
 			for (int j = 9; j < 18; j++) {
 				reservingHoursForNewDays.add(new ReservingHour(date, j));

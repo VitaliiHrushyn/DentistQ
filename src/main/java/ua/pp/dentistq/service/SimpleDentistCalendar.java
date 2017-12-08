@@ -59,11 +59,11 @@ public class SimpleDentistCalendar implements DentistCalendar {
 			
 			count = (30 * 9 - subcount);
 		} else {
-			count = 30 * 9;
+			count = 31 * 9;
 		}
 		
 		int days = count / 9; // split total quantity of hours to quantity of hours per one day to get quantity of days
-	
+		if (days < 0) days = 0;
 		reservingHourRepository.save(reservinigHoursFactory.createNewDentistCalendarDays(days));
 		return days;
 	}
@@ -122,7 +122,7 @@ public class SimpleDentistCalendar implements DentistCalendar {
 	
 	public List<ReservingHour> getCurrentCalendar() {
 		List<ReservingHour> hoursFromToday = new ArrayList<>();	
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 31; i++) {
 			hoursFromToday.addAll(reservingHourRepository.findByDate(LocalDate.now().plusDays(i)));			
 		}		
 		return hoursFromToday;		
